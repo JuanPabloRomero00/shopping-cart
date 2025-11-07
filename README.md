@@ -112,13 +112,23 @@ npm run dev
 ```
 La aplicación estará disponible en `http://localhost:5173`
 
-## Usuarios por Defecto
+## Creación de Usuario Administrador
 
-Al iniciar la aplicación por primera vez, se crean automáticamente los siguientes usuarios:
+Para crear el primer usuario administrador, utiliza el endpoint de registro con un código secreto:
 
-- **Admin**: admin@admin.com / password123
-- **Seller**: seller@seller.com / password123
-- **Customer**: customer@customer.com / password123
+```bash
+POST /api/auth/create-admin
+Content-Type: application/json
+
+{
+  "name": "Admin User",
+  "email": "admin@example.com",
+  "password": "your_secure_password",
+  "secretCode": "your_secret_code"
+}
+```
+
+Una vez creado el administrador, puedes crear otros usuarios desde el panel de administración o mediante registro normal para sellers y customers.
 
 ## API Endpoints
 
