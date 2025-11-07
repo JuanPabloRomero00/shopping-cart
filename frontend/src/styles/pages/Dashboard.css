@@ -1,0 +1,367 @@
+/* ========================================
+   ESTILOS DASHBOARD - PANEL DE ADMINISTRACIÓN
+   ======================================== */
+
+/* Contenedor principal del dashboard */
+.dashboard {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg-page) 0%, var(--color-gray-100) 100%);
+}
+
+/* Header del dashboard */
+.dashboard-header {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  color: var(--text-white);
+  padding: var(--spacing-2xl) var(--spacing-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.dashboard-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-title {
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.02em;
+}
+
+.dashboard-subtitle {
+  font-size: var(--font-size-xl);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
+}
+
+/* Navegación con botones */
+.dashboard-navigation {
+  background: var(--bg-card);
+  padding: var(--spacing-2xl) var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.dashboard-nav-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.dashboard-nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.dashboard-nav-button {
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  border: 2px solid transparent;
+  position: relative;
+  min-width: 160px;
+  text-align: center;
+  background: transparent;
+}
+
+.dashboard-nav-button--active {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  color: var(--text-white);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--color-primary-light);
+}
+
+.dashboard-nav-button--inactive {
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border-color: var(--border-primary);
+}
+
+.dashboard-nav-button--inactive:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-accent);
+  color: var(--text-accent);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Área de contenido */
+.dashboard-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+}
+
+/* Secciones de contenido */
+.dashboard-section {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-2xl);
+  border: 1px solid var(--border-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary-light) 0%, var(--color-accent) 100%);
+}
+
+.dashboard-section-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 600;
+  color: var(--text-accent);
+  margin-bottom: var(--spacing-2xl);
+  text-align: center;
+  position: relative;
+}
+
+.dashboard-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--color-primary-light);
+  border-radius: 2px;
+}
+
+/* Mensaje vacío */
+.dashboard-empty-message {
+  color: var(--text-muted);
+  text-align: center;
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-2xl);
+  font-style: italic;
+}
+
+/* Contenedor de tabla */
+.dashboard-table-container {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-secondary);
+  box-shadow: var(--shadow-sm);
+  background: var(--bg-card);
+}
+
+/* Tabla */
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.dashboard-table-header {
+  background: linear-gradient(135deg, var(--color-gray-100) 0%, var(--color-gray-200) 100%);
+}
+
+.dashboard-table-header-cell {
+  padding: var(--spacing-lg) var(--spacing-lg);
+  text-align: center;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--border-accent);
+}
+
+.dashboard-table-body {
+  background: var(--bg-card);
+}
+
+.dashboard-table-row {
+  transition: all var(--transition-fast);
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.dashboard-table-row:hover {
+  background: var(--bg-hover);
+  transform: scale(1.002);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-table-row:last-child {
+  border-bottom: none;
+}
+
+.dashboard-table-cell {
+  padding: var(--spacing-lg) var(--spacing-lg);
+  text-align: center;
+  color: var(--text-secondary);
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.dashboard-table-cell--name {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.dashboard-table-cell--price {
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+/* Badges de rol */
+.dashboard-role-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  border-radius: var(--radius-lg);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dashboard-role-badge--admin {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  color: #dc2626;
+  border: 1px solid #f87171;
+}
+
+.dashboard-role-badge--seller {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  color: #2563eb;
+  border: 1px solid #60a5fa;
+}
+
+.dashboard-role-badge--user {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #f0f9ff 100%);
+  color: var(--color-primary-dark);
+  border: 1px solid var(--color-primary-light);
+}
+
+/* Estados de carga */
+.dashboard-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-3xl);
+  color: var(--text-muted);
+  font-size: var(--font-size-lg);
+}
+
+.dashboard-error {
+  color: var(--color-error);
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-md);
+  margin: var(--spacing-xl) 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  .dashboard-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .dashboard-subtitle {
+    font-size: var(--font-size-lg);
+  }
+  
+  .dashboard-nav-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+  
+  .dashboard-nav-button {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .dashboard-content {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  .dashboard-section {
+    padding: var(--spacing-xl);
+  }
+  
+  .dashboard-table-header-cell,
+  .dashboard-table-cell {
+    padding: var(--spacing-md) var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .dashboard-subtitle {
+    font-size: var(--font-size-md);
+  }
+  
+  .dashboard-section-title {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* ========================================
+   ESTILOS PARA INFORMACIÓN DEL VENDEDOR
+   ======================================== */
+
+.seller-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.seller-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.seller-email {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.no-seller {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.875rem;
+}

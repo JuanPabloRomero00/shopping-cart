@@ -1,0 +1,99 @@
+/* ========================================
+   ESTILOS PRINCIPALES - IMPORTACIONES
+   ======================================== */
+
+/* Variables y configuración base */
+@import './variables.css';
+
+/* Componentes */
+@import './components/Navigation.css';
+@import './components/Toast.css';
+
+/* Páginas */
+@import './pages/Dashboard.css';
+@import './pages/Profile.css';
+@import './pages/Auth.css';
+@import './pages/Home.css';
+@import './pages/ProductManagement.css';
+
+/* Reset adicional y configuración global */
+html {
+  scroll-behavior: smooth;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Animaciones personalizadas */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Clases de utilidad para animaciones */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-medium);
+}
+
+/* Focus visible para accesibilidad */
+*:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+/* Selección de texto personalizada */
+::selection {
+  background: var(--color-primary-light);
+  color: var(--text-white);
+}
